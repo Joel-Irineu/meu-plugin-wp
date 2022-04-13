@@ -23,10 +23,20 @@
     add_action('admin_menu', 'myMenu');
 
     function myPluginPage() {
-        echo '
+        if(array_key_exists('acao', $_POST)) {
+            echo $_POST['nome'];
+        }
+        ?>
         <div class="wrap">
             <h1>Bem Vindo(a) ao Meu Plugin</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem!</p>
-        ';
+            <form method="post">
+                <label>Nome:</label>
+                <input type="text" name="nome" id="nome">
+                <label>Email:</label>
+                <input type="email" name="email" id="email">
+                <input type="submit" name="acao" value="Enviar" class="button button-primary">
+            </form>
+        </div>
+<?php
     }
 ?>
