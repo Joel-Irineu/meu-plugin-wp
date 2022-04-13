@@ -24,16 +24,21 @@
 
     function myPluginPage() {
         if(array_key_exists('acao', $_POST)) {
-            echo $_POST['nome'];
+            update_option('conteudo_html', $_POST['conteudo_html']);
+?>
+            <div class="notice notice-success is-dismissible"> 
+            	<p><strong>Conteudo salvo.</strong></p>
+            </div>
+
+<?php
         }
-        ?>
+        $conteudo_html = get_option('conteudo_html');
+?>
         <div class="wrap">
             <h1>Bem Vindo(a) ao Meu Plugin</h1>
             <form method="post">
-                <label>Nome:</label>
-                <input type="text" name="nome" id="nome">
-                <label>Email:</label>
-                <input type="email" name="email" id="email">
+                <label>Conteudo HTML:</label>
+                <textarea class="large-text" type="text" name="conteudo_html" id="conteudo_html"><?php echo $conteudo_html ?></textarea>
                 <input type="submit" name="acao" value="Enviar" class="button button-primary">
             </form>
         </div>
