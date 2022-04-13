@@ -44,4 +44,14 @@
         </div>
 <?php
     }
+
+    function getConteudoHead() {
+        echo '<!-- Conteudo do head -->';
+    }
+    function getConteudoFooter() {
+        echo '<!-- Conteudo do footer -->';
+    }
+
+    add_action('wp_head', 'getConteudoHead');
+    add_action('wp_footer', 'getConteudoFooter');
 ?>
